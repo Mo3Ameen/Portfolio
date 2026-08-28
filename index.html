@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad — Java Backend Developer</title>
+    <meta name="description" content="Java backend developer in Vienna. Spring Boot, PostgreSQL, REST APIs.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- ============ WHOAMI ============ -->
+        <header class="section hero">
+            <p class="prompt">$ whoami</p>
+            <h1>Mohammad Ameen Kanaan<span class="caret"></span></h1>
+            <p class="tagline">Java Backend Developer &middot; Vienna, Austria</p>
+            <p class="intro">
+                Junior backend developer in Vienna, finishing a Java apprenticeship.
+                I build APIs end to end and care most about the parts that are easy to get
+                wrong &mdash; payments, pricing, and data that has to stay correct over time.
+            </p>
+        </header>
+
+        <!-- ============ SKILLS ============ -->
+        <section class="section">
+            <p class="prompt">$ skills</p>
+            <ul class="badges">
+                <li class="badge">Java 21</li>
+                <li class="badge">Spring Boot</li>
+                <li class="badge">Spring Data JPA</li>
+                <li class="badge">Spring Security</li>
+                <li class="badge">Hibernate</li>
+                <li class="badge">PostgreSQL</li>
+                <li class="badge">REST APIs</li>
+                <li class="badge">Maven</li>
+                <li class="badge">JUnit 5</li>
+                <li class="badge">Mockito</li>
+                <li class="badge">Thymeleaf</li>
+                <li class="badge">Stripe API</li>
+                <li class="badge">Git</li>
+                <!-- Add Docker and GitHub Actions once #33 and #34 are merged -->
+            </ul>
+        </section>
+
+        <!-- ============ PROJECTS ============ -->
+        <section class="section">
+            <p class="prompt">$ projects</p>
+
+            <article class="card">
+                <details class="project">
+
+                    <summary class="project-head">
+                        <div class="project-head-text">
+                            <h2 class="card-title">Golden Fork &mdash; Restaurant Ordering System</h2>
+                            <p class="card-summary">
+                                A full ordering platform: customers browse a menu, build a cart and pay
+                                by card. Staff get a live kitchen queue and full control of the menu.
+                            </p>
+                        </div>
+                        <span class="chevron" aria-hidden="true">&#9662;</span>
+                    </summary>
+
+                    <div class="project-body">
+
+                        <!-- Uncomment once images/menu.png exists. A broken image looks worse than none. -->
+                        <!--
+                        <img class="card-image" src="images/menu.png"
+                             alt="The Golden Fork menu page showing food categories" loading="lazy">
+                        -->
+
+                        <h3 class="card-label">What it does</h3>
+                        <ul class="bullets">
+                            <li>Real card payments through Stripe Checkout, verified end to end</li>
+                            <li>HTML receipt emailed to the customer on every successful payment</li>
+                            <li>Kitchen queue of paid orders, sorted by payment time</li>
+                            <li>Admin menu management with soft delete, locked down by role</li>
+                            <li>Server-rendered frontend in Thymeleaf, sharing the same services as the API</li>
+                        </ul>
+
+                        <h3 class="card-label">Design decisions I can defend</h3>
+                        <ul class="bullets">
+                            <li><strong>Snapshot pricing</strong> &mdash; each order stores the price it was bought at,
+                                so changing a menu price never rewrites history</li>
+                            <li><strong>Two independent payment confirmations</strong> &mdash; a Stripe webhook and a
+                                redirect check; either one alone is enough, so a lost webhook cannot lose a payment</li>
+                            <li><strong>Receipt failures never roll back a payment</strong> &mdash; a mail error inside
+                                the transaction would un-pay an order the customer was already charged for</li>
+                            <li><strong>Two separate limits</strong> &mdash; a per-line cap explains the rule to the
+                                customer, an order-total cap keeps the database column from ever overflowing</li>
+                            <li><strong>The session holds only a cart id</strong> &mdash; never the cart itself, and
+                                never an id taken from the URL</li>
+                        </ul>
+
+                        <ul class="badges">
+                            <li class="badge">Java 21</li>
+                            <li class="badge">Spring Boot</li>
+                            <li class="badge">PostgreSQL</li>
+                            <li class="badge">Stripe</li>
+                            <li class="badge">Thymeleaf</li>
+                            <li class="badge">JUnit 5</li>
+                        </ul>
+
+                        <p class="card-links">
+                            <a class="button" href="https://youtu.be/BloftlyhFDU">Watch the demo</a>
+                            <!-- <a class="button button-ghost" href="REPLACE_REPO_URL">Source code</a> -->
+                        </p>
+                    </div>
+
+                </details>
+            </article>
+
+            <!-- To add another project: copy the whole <article> block above. -->
+
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section">
+            <p class="prompt">$ contact</p>
+            <ul class="links">
+                <li>
+                    <span class="link-key">email</span>
+                    <a href="mailto:mohamad.syyy@gmail.com">mohamad.syyy@gmail.com</a>
+                    <button class="copy" type="button" data-copy="mohamad.syyy@gmail.com">copy</button>
+                </li>
+                <li>
+                    <span class="link-key">linkedin</span>
+                    <a href="https://www.linkedin.com/in/mohammad-ameen-kanaan-763564230/">Mohammad Ameen Kanaan</a>
+                </li>
+                <li>
+                    <span class="link-key">github</span>
+                    <a href="https://github.com/Mo3Ameen">@Mo3Ameen</a>
+                </li>
+                <!-- Uncomment once cv.pdf is in the folder.
+                <li>
+                    <span class="link-key">cv</span>
+                    <a href="cv.pdf" download>Download CV (PDF)</a>
+                </li>
+                -->
+                <li>
+                    <span class="link-key">location</span>
+                    <span>Vienna, Austria</span>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Mohammad Ameen Kanaan</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
