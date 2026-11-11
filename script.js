@@ -1,5 +1,3 @@
-console.log("--- script.js started ---");
-
 // Footer year. Guarded, so a missing element can't kill everything below it.
 var yearEl = document.getElementById("year");
 if (yearEl) {
@@ -26,16 +24,10 @@ document.querySelectorAll(".copy").forEach(function (button) {
     var DURATION = 300;
     var EASING = "ease";
 
-    // TEMPORARY: set to false later to respect the visitor's system setting.
-    var FORCE_ANIMATION = true;
-
-    var systemReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var reduceMotion = FORCE_ANIMATION ? false : systemReduceMotion;
+    // Respect the visitor's system "reduce motion" setting.
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     var cards = document.querySelectorAll("details.project");
-
-    console.log("system reduced-motion setting:", systemReduceMotion);
-    console.log("project cards found:", cards.length);
 
     if (cards.length === 0) {
         console.error("no <details class=\"project\"> found - check the HTML class names");
@@ -49,15 +41,12 @@ document.querySelectorAll(".copy").forEach(function (button) {
         if (!summary) { console.error("card " + i + ": no <summary>"); return; }
         if (!body) { console.error("card " + i + ": no .project-body"); return; }
 
-        console.log("card " + i + ": wired up");
-
         var animation = null;
 
         summary.addEventListener("click", function (event) {
             event.preventDefault();
 
             if (reduceMotion) {
-                console.log("reduced motion - instant toggle");
                 details.open = !details.open;
                 return;
             }
@@ -76,12 +65,6 @@ document.querySelectorAll(".copy").forEach(function (button) {
 
             var endHeight = opening ? body.scrollHeight : 0;
 
-            console.log("click - opening:", opening, "from:", Math.round(startHeight), "to:", endHeight);
-
-            if (endHeight === 0 && opening) {
-                console.error("body has zero height - nothing to animate");
-            }
-
             animation = body.animate(
                 { height: [startHeight + "px", endHeight + "px"] },
                 { duration: DURATION, easing: EASING }
@@ -92,7 +75,6 @@ document.querySelectorAll(".copy").forEach(function (button) {
                     details.open = false;
                 }
                 animation = null;
-                console.log("animation finished");
             };
         });
     });
