@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammad — Java Backend Developer</title>
-    <meta name="description" content="Java backend developer in Vienna. Spring Boot, PostgreSQL, REST APIs.">
+    <meta name="description" content="Java backend developer in Vienna. Spring Boot, PostgreSQL, REST APIs, Docker.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,9 +26,10 @@
             <h1>Mohammad Ameen Kanaan<span class="caret"></span></h1>
             <p class="tagline">Java Backend Developer &middot; Vienna, Austria</p>
             <p class="intro">
-                Junior backend developer in Vienna, finishing a Java apprenticeship.
+                Junior backend developer in Vienna. I finished a Java apprenticeship and I'm now looking for my first job.
                 I build APIs end to end and care most about the parts that are easy to get
                 wrong &mdash; payments, pricing, and data that has to stay correct over time.
+                I ship with tests, Docker and CI, and build small browser projects on the side.
             </p>
         </header>
 
@@ -48,8 +49,13 @@
                 <li class="badge">Mockito</li>
                 <li class="badge">Thymeleaf</li>
                 <li class="badge">Stripe API</li>
+                <li class="badge">Spring Mail</li>
+                <li class="badge">Docker</li>
+                <li class="badge">GitHub Actions</li>
                 <li class="badge">Git</li>
-                <!-- Add Docker and GitHub Actions once #33 and #34 are merged -->
+                <li class="badge">TypeScript</li>
+                <li class="badge">JavaScript</li>
+                <li class="badge">HTML/CSS</li>
             </ul>
         </section>
 
@@ -86,6 +92,8 @@
                             <li>Kitchen queue of paid orders, sorted by payment time</li>
                             <li>Admin menu management with soft delete, locked down by role</li>
                             <li>Server-rendered frontend in Thymeleaf, sharing the same services as the API</li>
+                            <li>Runs with one Docker Compose command; GitHub Actions runs the tests against a real
+                                PostgreSQL and builds the image on every push</li>
                         </ul>
 
                         <h3 class="card-label">Design decisions I can defend</h3>
@@ -109,11 +117,101 @@
                             <li class="badge">Stripe</li>
                             <li class="badge">Thymeleaf</li>
                             <li class="badge">JUnit 5</li>
+                            <li class="badge">Docker</li>
+                            <li class="badge">GitHub Actions</li>
                         </ul>
 
                         <p class="card-links">
                             <a class="button" href="https://youtu.be/BloftlyhFDU">Watch the demo</a>
-                            <!-- <a class="button button-ghost" href="REPLACE_REPO_URL">Source code</a> -->
+                            <a class="button button-ghost" href="https://github.com/Mo3Ameen/order-api">Source code</a>
+                        </p>
+                    </div>
+
+                </details>
+            </article>
+
+            <article class="card">
+                <details class="project">
+
+                    <summary class="project-head">
+                        <div class="project-head-text">
+                            <h2 class="card-title">The Snake &mdash; Browser Game</h2>
+                            <p class="card-summary">
+                                The classic snake game on an HTML canvas, written in TypeScript. Plays with
+                                the keyboard on desktop and with swipes on a phone.
+                            </p>
+                        </div>
+                        <span class="chevron" aria-hidden="true">&#9662;</span>
+                    </summary>
+
+                    <div class="project-body">
+
+                        <h3 class="card-label">What it does</h3>
+                        <ul class="bullets">
+                            <li>Arrow keys or WASD on desktop, swipe and tap controls on mobile</li>
+                            <li>Start screen, pause, and restart after game over, all on one key or tap</li>
+                            <li>Live score, and food that never spawns on the snake</li>
+                            <li>Built with Vite and deployed to GitHub Pages by a GitHub Actions workflow</li>
+                        </ul>
+
+                        <h3 class="card-label">Design decisions I can defend</h3>
+                        <ul class="bullets">
+                            <li><strong>Direction is checked against the last move, not the last key</strong> &mdash;
+                                two quick key presses in one tick can no longer turn the snake back into itself</li>
+                            <li><strong>One collision check for walls and body</strong> &mdash; the same function
+                                ends the game and keeps new food off the snake</li>
+                            <li><strong>The font loads before the first draw</strong> &mdash; canvas text does not
+                                wait for web fonts, so the start screen would otherwise appear in the wrong font</li>
+                        </ul>
+
+                        <ul class="badges">
+                            <li class="badge">TypeScript</li>
+                            <li class="badge">HTML Canvas</li>
+                            <li class="badge">Vite</li>
+                            <li class="badge">GitHub Actions</li>
+                        </ul>
+
+                        <p class="card-links">
+                            <a class="button" href="https://mo3ameen.github.io/snake/">Play it live</a>
+                            <a class="button button-ghost" href="https://github.com/Mo3Ameen/snake">Source code</a>
+                        </p>
+                    </div>
+
+                </details>
+            </article>
+
+            <article class="card">
+                <details class="project">
+
+                    <summary class="project-head">
+                        <div class="project-head-text">
+                            <h2 class="card-title">Stopwatch &mdash; Beat the Target</h2>
+                            <p class="card-summary">
+                                A stopwatch game: you get a random target time and have to stop the clock
+                                as close to it as you can.
+                            </p>
+                        </div>
+                        <span class="chevron" aria-hidden="true">&#9662;</span>
+                    </summary>
+
+                    <div class="project-body">
+
+                        <h3 class="card-label">What it does</h3>
+                        <ul class="bullets">
+                            <li>Picks a random target of up to about 20 seconds and counts in hundredths of a second</li>
+                            <li>Tells you how far off you were, from &ldquo;Perfect&rdquo; to &ldquo;too far&rdquo;</li>
+                            <li>Start, Stop and Reset, with buttons disabled when they do not apply</li>
+                        </ul>
+
+                        <ul class="badges">
+                            <li class="badge">JavaScript</li>
+                            <li class="badge">HTML</li>
+                            <li class="badge">CSS</li>
+                        </ul>
+
+                        <p class="card-links">
+                            <a class="button" href="https://mo3ameen.github.io/Stopwatch/">Try it live</a>
+                            <a class="button button-ghost" href="https://github.com/Mo3Ameen/Stopwatch">Source code</a>
                         </p>
                     </div>
 
